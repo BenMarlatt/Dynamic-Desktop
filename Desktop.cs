@@ -28,7 +28,7 @@ namespace Dynamic_Desktop
             SHChangeNotify(0x8000000, 0x1000, IntPtr.Zero, IntPtr.Zero);
         }
     }
-
+    [XmlRoot("Desktop")]
     class Desktop
     {
         [XmlElement("IsDefault")]
@@ -43,6 +43,8 @@ namespace Dynamic_Desktop
             name = Name;
             location = Location;
         }
+        //This is for the XML Serializer
+        private Desktop() { }
 
         public static void Change_Desktop(string newPath)
         {

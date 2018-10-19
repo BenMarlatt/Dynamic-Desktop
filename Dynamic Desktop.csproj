@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Desktop.cs" />
+    <Compile Include="DesktopXmlizer.cs" />
     <Compile Include="Desktop_Manager.cs" />
     <Compile Include="EditFavorites.cs">
       <SubType>Form</SubType>

@@ -1,6 +1,6 @@
 ﻿namespace Dynamic_Desktop
 {
-    partial class Form1
+    partial class RootForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.ChangeDesktopButton = new System.Windows.Forms.Button();
             this.DirectoryTextBox = new System.Windows.Forms.TextBox();
             this.DefaultDesktopButton = new System.Windows.Forms.Button();
+            this.FavoritesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExploreButton
@@ -71,16 +72,27 @@
             this.DefaultDesktopButton.UseVisualStyleBackColor = true;
             this.DefaultDesktopButton.Click += new System.EventHandler(this.DefaultDesktopButton_Click);
             // 
-            // Form1
+            // FavoritesButton
+            // 
+            this.FavoritesButton.Location = new System.Drawing.Point(12, 41);
+            this.FavoritesButton.Name = "FavoritesButton";
+            this.FavoritesButton.Size = new System.Drawing.Size(75, 20);
+            this.FavoritesButton.TabIndex = 5;
+            this.FavoritesButton.Text = "Favorites";
+            this.FavoritesButton.UseVisualStyleBackColor = true;
+            this.FavoritesButton.Click += new System.EventHandler(this.FavoritesButton_Click);
+            // 
+            // RootForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 70);
+            this.Controls.Add(this.FavoritesButton);
             this.Controls.Add(this.DefaultDesktopButton);
             this.Controls.Add(this.DirectoryTextBox);
             this.Controls.Add(this.ChangeDesktopButton);
             this.Controls.Add(this.ExploreButton);
-            this.Name = "Form1";
+            this.Name = "RootForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -93,6 +105,7 @@
         private System.Windows.Forms.Button ChangeDesktopButton;
         private System.Windows.Forms.TextBox DirectoryTextBox;
         private System.Windows.Forms.Button DefaultDesktopButton;
+        private System.Windows.Forms.Button FavoritesButton;
     }
 }
 

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Dynamic_Desktop
 {
-    public partial class Form1 : Form
+    public partial class RootForm : Form
     {
-        public Form1()
+        public RootForm()
         {
             InitializeComponent();
         }
@@ -49,7 +49,11 @@ namespace Dynamic_Desktop
             string PublicDesktopDir = @"C:\Users\Public\Desktop";
             if (Directory.GetFiles(PublicDesktopDir).Length != 0)
             {
-                DialogResult userAnswer = MessageBox.Show("The directory C:\\Users\\Public\\Desktop\\ contains files.\nWould you like to move them to your user's Desktop instead?\nIt's recommended to move them or files in the Public Desktop will always show.", "Do you want to move files?", MessageBoxButtons.YesNo);
+                DialogResult userAnswer = MessageBox.Show(
+                    "The directory C:\\Users\\Public\\Desktop\\ contains files.\nWould you like to move them to your user's Desktop instead?\n" +
+                    "It's recommended to move them or files in the Public Desktop will always show.", 
+                    "Do you want to move files?", MessageBoxButtons.YesNo);
+
                 if (userAnswer == DialogResult.Yes)
                 {
 
@@ -70,6 +74,13 @@ namespace Dynamic_Desktop
                     }
                 }
             }
+        }
+
+        private void FavoritesButton_Click(object sender, EventArgs e)
+        {
+            FavoritesForm favoritesForm = new FavoritesForm();
+            favoritesForm.ShowDialog();
+            favoritesForm.Activate();
         }
     }
 }

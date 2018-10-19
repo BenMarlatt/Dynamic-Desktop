@@ -12,18 +12,18 @@ namespace Dynamic_Desktop
 {
     public partial class EditFavorites : Form
     {
-        int favoritesSlot;
+        Desktop_Manager desktop_Manager = new Desktop_Manager();
         public EditFavorites(int FavoritesSlot)
         {
-            favoritesSlot = FavoritesSlot;
+            desktop_Manager.selectedDesktop = FavoritesSlot;
             InitializeComponent();
         }
 
         private void SaveToDesktop()
         {
-            Desktop desktop = Desktop_Manager.Desktop_List[favoritesSlot];
-            desktop.name = EditFavorites_NameTextbox.Text;
-            desktop.location = EditFavorites_LocationTextbox.Text;
+            
+            desktop_Manager.name = EditFavorites_NameTextbox.Text;
+            desktop_Manager.location = EditFavorites_LocationTextbox.Text;
         }
 
         private void EditFavorites_ApplyButton_Click(object sender, EventArgs e)
@@ -38,11 +38,9 @@ namespace Dynamic_Desktop
 
         private void EditFavorites_Load(object sender, EventArgs e)
         {
-            Desktop desktop = new Desktop();
-            desktop = Desktop_Manager.Desktop_List[favoritesSlot];
 
-            this.EditFavorites_LocationTextbox.Text = desktop.location;
-            this.EditFavorites_NameTextbox.Text = desktop.name;
+            this.EditFavorites_LocationTextbox.Text = desktop_Manager.location;
+            this.EditFavorites_NameTextbox.Text = desktop_Manager.name;
         }
     }
 }

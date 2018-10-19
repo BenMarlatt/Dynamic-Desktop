@@ -13,6 +13,7 @@ namespace Dynamic_Desktop
 {
     public partial class RootForm : Form
     {
+        Desktop_Manager desktop_Manager = new Desktop_Manager();
         public RootForm()
         {
             InitializeComponent();
@@ -90,13 +91,14 @@ namespace Dynamic_Desktop
 
         private void RootForm_Load(object sender, EventArgs e)
         {
+            desktop_Manager.selectedDesktop = 0;
             Desktop_Manager.Load_Desktop();
-            DirectoryTextBox.Text = Desktop_Manager.Desktop_List[Desktop_Manager.selectedDesktop].location;
+            DirectoryTextBox.Text = desktop_Manager.location;
         }
 
         private void RootForm_Activated(object sender, EventArgs e)
         {
-            DirectoryTextBox.Text = Desktop_Manager.Desktop_List[Desktop_Manager.selectedDesktop].location;
+            DirectoryTextBox.Text = desktop_Manager.location;
         }
     }
 }

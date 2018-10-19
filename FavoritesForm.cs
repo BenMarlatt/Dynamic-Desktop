@@ -12,6 +12,7 @@ namespace Dynamic_Desktop
 {
     public partial class FavoritesForm : Form
     {
+        Desktop_Manager desktop_Manager = new Desktop_Manager();
         public FavoritesForm()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Dynamic_Desktop
 
         private void selectEditFavorites(int FavoritesSlot)
         {
-            Desktop_Manager.selectedDesktop = FavoritesSlot;
+            desktop_Manager.selectedDesktop = FavoritesSlot;
         }
 
         private void refreshFavorites()
@@ -98,31 +99,37 @@ namespace Dynamic_Desktop
         private void FavoritesForm_SelectButton0_Click(object sender, EventArgs e)
         {
             selectEditFavorites(0);
+            this.Close();
         }
 
         private void FavoritesForm_SelectButton1_Click(object sender, EventArgs e)
         {
             selectEditFavorites(1);
+            this.Close();
         }
 
         private void FavoritesForm_SelectButton2_Click(object sender, EventArgs e)
         {
             selectEditFavorites(2);
+            this.Close();
         }
 
         private void FavoritesForm_SelectButton3_Click(object sender, EventArgs e)
         {
             selectEditFavorites(3);
+            this.Close();
         }
 
         private void FavoritesForm_SelectButton4_Click(object sender, EventArgs e)
         {
             selectEditFavorites(4);
+            this.Close();
         }
 
         private void FavoritesForm_SelectButton5_Click(object sender, EventArgs e)
         {
             selectEditFavorites(5);
+            this.Close();
         }
     }
 }

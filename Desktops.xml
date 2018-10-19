@@ -1,1 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0"?>
+<ArrayOfDesktop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Desktop>
+    <Location>%USERPROFILE%/Desktop</Location>
+    <Name>Desktop</Name>
+  </Desktop>
+  <Desktop>
+    <Location>%USERPROFILE%/Documents</Location>
+    <Name>Documents</Name>
+  </Desktop>
+  <Desktop>
+    <Location>%USERPROFILE%/Pictures</Location>
+    <Name>Pictures</Name>
+  </Desktop>
+  <Desktop>
+    <Location>Location</Location>
+    <Name>3</Name>
+  </Desktop>
+  <Desktop>
+    <Location>Location</Location>
+    <Name>4</Name>
+  </Desktop>
+  <Desktop>
+    <Location>Location</Location>
+    <Name>5</Name>
+  </Desktop>
+  <Desktop>
+    <Location>Location</Location>
+    <Name>6</Name>
+  </Desktop>
+  <Desktop>
+    <Location>Location</Location>
+    <Name>7</Name>
+  </Desktop>
+</ArrayOfDesktop>

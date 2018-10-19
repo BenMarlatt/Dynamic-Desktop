@@ -70,7 +70,7 @@
             // 
             // EditFavorites_CancelButton
             // 
-            this.EditFavorites_CancelButton.Location = new System.Drawing.Point(174, 94);
+            this.EditFavorites_CancelButton.Location = new System.Drawing.Point(172, 73);
             this.EditFavorites_CancelButton.Name = "EditFavorites_CancelButton";
             this.EditFavorites_CancelButton.Size = new System.Drawing.Size(75, 23);
             this.EditFavorites_CancelButton.TabIndex = 5;
@@ -80,7 +80,7 @@
             // 
             // EditFavorites_ApplyButton
             // 
-            this.EditFavorites_ApplyButton.Location = new System.Drawing.Point(93, 94);
+            this.EditFavorites_ApplyButton.Location = new System.Drawing.Point(89, 73);
             this.EditFavorites_ApplyButton.Name = "EditFavorites_ApplyButton";
             this.EditFavorites_ApplyButton.Size = new System.Drawing.Size(75, 23);
             this.EditFavorites_ApplyButton.TabIndex = 6;
@@ -92,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 129);
+            this.ClientSize = new System.Drawing.Size(259, 108);
             this.Controls.Add(this.EditFavorites_ApplyButton);
             this.Controls.Add(this.EditFavorites_CancelButton);
             this.Controls.Add(this.EditFavorites_LocationTextbox);

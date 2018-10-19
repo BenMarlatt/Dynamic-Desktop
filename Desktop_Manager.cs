@@ -8,13 +8,50 @@ using System.Threading.Tasks;
 
 namespace Dynamic_Desktop
 {
-    
-
     class Desktop_Manager
     {
         static string xmlFileLocation = @"Desktops.xml";
-        public static int selectedDesktop = 0;
+        private static int SelectedDesktop;
         public static List<Desktop> Desktop_List = new List<Desktop>();
+
+        public int selectedDesktop
+        {
+            get
+            {
+                return SelectedDesktop;
+            }
+            set
+            {
+                SelectedDesktop = value;
+            }
+        }
+
+        public string name
+        {
+            get
+            {
+                return Desktop_List[selectedDesktop].name;
+            }
+            set
+            {
+                // This would be a good place for error checking and location checking
+                Desktop_List[selectedDesktop].name = value;
+            }
+        }
+        public string location
+        {
+            get
+            {
+                return Desktop_List[selectedDesktop].location;
+            }
+
+
+            set
+            {
+                // This would be a good place for error checking and location checking
+                Desktop_List[selectedDesktop].location = value;
+            }
+        }
 
         public static void Load_Desktop()
         {

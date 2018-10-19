@@ -19,7 +19,7 @@ namespace Dynamic_Desktop
 
         }
 
-        public void XMLToDesktop(string path)
+        public List<Desktop> XMLToDesktop(string path)
         {
             List<Desktop> desktops = new List<Desktop>();
             System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(desktops.GetType());
@@ -28,6 +28,7 @@ namespace Dynamic_Desktop
             {
                 desktops = (List<Desktop>)x.Deserialize(stream);
             }
+            return desktops;
         }
 
 

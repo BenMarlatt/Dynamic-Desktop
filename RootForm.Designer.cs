@@ -94,6 +94,8 @@
             this.Controls.Add(this.ExploreButton);
             this.Name = "RootForm";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.RootForm_Activated);
+            this.Load += new System.EventHandler(this.RootForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

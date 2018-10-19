@@ -34,7 +34,6 @@
             this.EditFavorites_LocationLabel = new System.Windows.Forms.Label();
             this.EditFavorites_CancelButton = new System.Windows.Forms.Button();
             this.EditFavorites_ApplyButton = new System.Windows.Forms.Button();
-            this.EditFavorites_OKButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EditFavorites_NameLabel
@@ -89,22 +88,11 @@
             this.EditFavorites_ApplyButton.UseVisualStyleBackColor = true;
             this.EditFavorites_ApplyButton.Click += new System.EventHandler(this.EditFavorites_ApplyButton_Click);
             // 
-            // EditFavorites_OKButton
-            // 
-            this.EditFavorites_OKButton.Location = new System.Drawing.Point(12, 94);
-            this.EditFavorites_OKButton.Name = "EditFavorites_OKButton";
-            this.EditFavorites_OKButton.Size = new System.Drawing.Size(75, 23);
-            this.EditFavorites_OKButton.TabIndex = 7;
-            this.EditFavorites_OKButton.Text = "OK";
-            this.EditFavorites_OKButton.UseVisualStyleBackColor = true;
-            this.EditFavorites_OKButton.Click += new System.EventHandler(this.EditFavorites_OKButton_Click);
-            // 
             // EditFavorites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(259, 129);
-            this.Controls.Add(this.EditFavorites_OKButton);
             this.Controls.Add(this.EditFavorites_ApplyButton);
             this.Controls.Add(this.EditFavorites_CancelButton);
             this.Controls.Add(this.EditFavorites_LocationTextbox);
@@ -113,6 +101,7 @@
             this.Controls.Add(this.EditFavorites_NameLabel);
             this.Name = "EditFavorites";
             this.Text = "EditFavorites";
+            this.Load += new System.EventHandler(this.EditFavorites_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +115,5 @@
         private System.Windows.Forms.Label EditFavorites_LocationLabel;
         private System.Windows.Forms.Button EditFavorites_CancelButton;
         private System.Windows.Forms.Button EditFavorites_ApplyButton;
-        private System.Windows.Forms.Button EditFavorites_OKButton;
     }
 }

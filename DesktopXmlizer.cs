@@ -11,12 +11,11 @@ namespace Dynamic_Desktop
     {
 
 
-        public void DesktopsToXML(List<Desktop> desktops)
+        public void DesktopsToXML(List<Desktop> desktops, string path)
         {
-
+            Console.WriteLine(path);
             System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(desktops.GetType());
-            x.Serialize(File.Create("Desktops.xml"), desktops);
-
+            x.Serialize(File.Create(path), desktops);
         }
 
         public List<Desktop> XMLToDesktop(string path)
@@ -30,7 +29,5 @@ namespace Dynamic_Desktop
             }
             return desktops;
         }
-
-
     }
 }

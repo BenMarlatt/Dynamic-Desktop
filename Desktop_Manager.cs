@@ -13,29 +13,21 @@ namespace Dynamic_Desktop
     class Desktop_Manager
     {
         static string xmlFileLocation = @"Desktops.xml";
-        public static Desktop[] Desktop_List = new Desktop[8];
+        public static int selectedDesktop = 0;
+        public static List<Desktop> Desktop_List = new List<Desktop>();
 
         public static void Load_Desktop()
         {
-            int c = 0;
-            foreach (Desktop desktop in Desktop_List)
-            {
-                Desktop_List[c] = new Desktop("Name", "Location");
-                c++;
-            }
+            DesktopXmlizer desktopXmlizer = new DesktopXmlizer();
+            Desktop_List = desktopXmlizer.XMLToDesktop(xmlFileLocation);
         }
 
         public static void Save_Desktops()
         {
-            using (StreamWriter file = new StreamWriter(xmlFileLocation))
-            {
-                
-                foreach (Desktop desktop in Desktop_List)
-                {
-                    XmlSerializer x = new XmlSerializer(desktop.GetType());
-                    x.Serialize(file, desktop);
-                }
-            }
+            Console.WriteLine("Save_Desktops");
+            DesktopXmlizer desktopXmlizer = new DesktopXmlizer();
+            desktopXmlizer.DesktopsToXML(Desktop_List, xmlFileLocation);
+            
         }
     }
 }

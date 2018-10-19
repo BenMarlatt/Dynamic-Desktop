@@ -34,6 +34,11 @@ namespace Dynamic_Desktop
             }
         }
 
+        public void SetDirectoryTextBox(string Directory)
+        {
+            DirectoryTextBox.Text = Directory;
+        }
+
         private void ChangeDesktopButton_Click(object sender, EventArgs e)
         {
             ChangeDesktop.Change_Desktop(DirectoryTextBox.Text);
@@ -81,6 +86,17 @@ namespace Dynamic_Desktop
             FavoritesForm favoritesForm = new FavoritesForm();
             favoritesForm.ShowDialog();
             favoritesForm.Activate();
+        }
+
+        private void RootForm_Load(object sender, EventArgs e)
+        {
+            Desktop_Manager.Load_Desktop();
+            DirectoryTextBox.Text = Desktop_Manager.Desktop_List[Desktop_Manager.selectedDesktop].location;
+        }
+
+        private void RootForm_Activated(object sender, EventArgs e)
+        {
+            DirectoryTextBox.Text = Desktop_Manager.Desktop_List[Desktop_Manager.selectedDesktop].location;
         }
     }
 }

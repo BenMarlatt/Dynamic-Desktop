@@ -29,7 +29,7 @@ namespace Dynamic_Desktop
         }
     }
     [XmlRoot("Desktop")]
-    class Desktop
+    public class Desktop
     {
         [XmlElement("IsDefault")]
         bool isDefault = false;
@@ -44,7 +44,7 @@ namespace Dynamic_Desktop
             location = Location;
         }
         //This is for the XML Serializer
-        private Desktop() { }
+        public Desktop() { }
 
         public static void Change_Desktop(string newPath)
         {

@@ -15,8 +15,7 @@ namespace Dynamic_Desktop
         {
 
             System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(desktops.GetType());
-            FileStream file = File.Create("Desktops.xml");
-            x.Serialize(file, desktops);
+            x.Serialize(File.Create("Desktops.xml"), desktops);
 
         }
 

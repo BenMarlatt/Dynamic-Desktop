@@ -8,11 +8,61 @@ using System.Threading.Tasks;
 
 namespace Dynamic_Desktop
 {
-    class Desktop_Manager
+    public class Desktop_Manager
     {
         static string xmlFileLocation = @"Desktops.xml";
-        private static int SelectedDesktop;
+        DesktopXmlizer desktopXmlizer = new DesktopXmlizer();
+        private static int SelectedDesktop = 0;
         public static List<Desktop> Desktop_List = new List<Desktop>();
+
+        public void createDefaultDesktop_List()
+        {
+            Desktop_List.Clear();
+            // Default data for when Desktop.xml is not for or user resets the data
+            var DefaultData = new List<Tuple<string, string>>
+            {
+                Tuple.Create("Desktop", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Desktop"),
+                Tuple.Create("Downloads", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads"),
+                Tuple.Create("Documents", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents"),
+                Tuple.Create("Pictures", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Pictures"),
+                Tuple.Create("Videos", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Videos"),
+                Tuple.Create("Music", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Music")
+            };
+
+            for (int x = 0; x < DefaultData.Count; x += 1)
+            {
+                string name = DefaultData[x].Item1;
+                string path = DefaultData[x].Item2;
+                int id = x;
+                Desktop_List.Add(new Desktop(name, path, id));
+            }
+        }
+
+        public void Load_Desktop()
+        {
+            
+            Desktop_List = desktopXmlizer.XMLToDesktop(xmlFileLocation);
+        }
+
+        public void Save_Desktops()
+        {
+            desktopXmlizer.DesktopsToXML(Desktop_List, xmlFileLocation);
+            
+        }
+
+        /*
+         *
+         * Getters/Setters
+         * 
+        */
+
+        public List<Desktop> desktop_List
+        {
+            get
+            {
+                return Desktop_List;
+            }
+        }
 
         public int selectedDesktop
         {
@@ -34,7 +84,6 @@ namespace Dynamic_Desktop
             }
             set
             {
-                // This would be a good place for error checking and location checking
                 Desktop_List[selectedDesktop].name = value;
             }
         }
@@ -45,26 +94,10 @@ namespace Dynamic_Desktop
                 return Desktop_List[selectedDesktop].location;
             }
 
-
             set
             {
-                // This would be a good place for error checking and location checking
                 Desktop_List[selectedDesktop].location = value;
             }
-        }
-
-        public static void Load_Desktop()
-        {
-            DesktopXmlizer desktopXmlizer = new DesktopXmlizer();
-            Desktop_List = desktopXmlizer.XMLToDesktop(xmlFileLocation);
-        }
-
-        public static void Save_Desktops()
-        {
-            Console.WriteLine("Save_Desktops");
-            DesktopXmlizer desktopXmlizer = new DesktopXmlizer();
-            desktopXmlizer.DesktopsToXML(Desktop_List, xmlFileLocation);
-            
         }
     }
 }

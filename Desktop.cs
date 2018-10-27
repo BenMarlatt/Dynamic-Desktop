@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Xml.Serialization;
@@ -23,25 +25,33 @@ namespace Dynamic_Desktop
 
         public static void Change_Desktop(string newPath)
         {
-            int flags = 0;
-            SHSetKnownFolderPath(ref KnownFolder.Desktop, (uint)flags, IntPtr.Zero, newPath);
-            SHChangeNotify(0x8000000, 0x1000, IntPtr.Zero, IntPtr.Zero);
+            if (Directory.Exists(newPath))
+            {
+                int flags = 0;
+                SHSetKnownFolderPath(ref KnownFolder.Desktop, (uint)flags, IntPtr.Zero, newPath);
+                SHChangeNotify(0x8000000, 0x1000, IntPtr.Zero, IntPtr.Zero);
+            }
+            else
+            {
+                MessageBox.Show("The selected path does not exist");
+            }
+            
         }
     }
     [XmlRoot("Desktop")]
     public class Desktop
     {
-        [XmlElement("IsDefault")]
-        bool isDefault = false;
         [XmlElement("Location")]
-        public string location = "";
+        public string location;
         [XmlElement("Name")]
-        public string name = "";
+        public string name;
+        public int id;
 
-        public Desktop(string Name, string Location)
+        public Desktop(string Name, string Location, int ID)
         {
             name = Name;
             location = Location;
+            id = ID;
         }
         //This is for the XML Serializer
         public Desktop() { }

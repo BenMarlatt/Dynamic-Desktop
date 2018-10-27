@@ -54,12 +54,6 @@
     <Compile Include="EditFavorites.Designer.cs">
       <DependentUpon>EditFavorites.cs</DependentUpon>
     </Compile>
-    <Compile Include="FavoritesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FavoritesForm.Designer.cs">
-      <DependentUpon>FavoritesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="RootForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,9 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EditFavorites.resx">
       <DependentUpon>EditFavorites.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FavoritesForm.resx">
-      <DependentUpon>FavoritesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RootForm.resx">
       <DependentUpon>RootForm.cs</DependentUpon>

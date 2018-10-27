@@ -23,16 +23,8 @@ namespace Dynamic_Desktop
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             folderBrowser.ShowDialog();
-            string folder = folderBrowser.SelectedPath;
-            if (folder == "")
-            {
-                MessageBox.Show("User Canceled");
-            }
-            else
-            {
-                //previousFilesToolStripMenuItem.
-                DirectoryTextBox.Text = folder;
-            }
+            DirectoryTextBox.Text = folderBrowser.SelectedPath;
+
         }
 
         public void SetDirectoryTextBox(string Directory)
@@ -45,60 +37,93 @@ namespace Dynamic_Desktop
             ChangeDesktop.Change_Desktop(DirectoryTextBox.Text);
         }
 
-        private void DefaultDesktopButton_Click(object sender, EventArgs e)
+        private void RootForm_Load(object sender, EventArgs e)
         {
-            ChangeDesktop.Change_Desktop(@"C:\Users\" + Environment.UserName + @"\Desktop\");
+            Console.WriteLine(Directory.GetCurrentDirectory() + $"\\Desktop.xml");
+            if (File.Exists(Directory.GetCurrentDirectory() + $"\\Desktops.xml"))
+            {
+                desktop_Manager.Load_Desktop();
+            }
+            else
+            {
+                Console.WriteLine("Loading from default");
+                desktop_Manager.createDefaultDesktop_List();
+                desktop_Manager.Save_Desktops();
+            }
+
+            DirectoryTextBox.Text = desktop_Manager.location;
+            refreshFavorites();
         }
 
-        private void checkPublicDesktop()
+        private void refreshFavorites()
         {
-            string PublicDesktopDir = @"C:\Users\Public\Desktop";
-            if (Directory.GetFiles(PublicDesktopDir).Length != 0)
-            {
-                DialogResult userAnswer = MessageBox.Show(
-                    "The directory C:\\Users\\Public\\Desktop\\ contains files.\nWould you like to move them to your user's Desktop instead?\n" +
-                    "It's recommended to move them or files in the Public Desktop will always show.", 
-                    "Do you want to move files?", MessageBoxButtons.YesNo);
-
-                if (userAnswer == DialogResult.Yes)
+            if (favoritesToolStripMenuItem.DropDownItems.Count != 0)
+                for (int i = favoritesToolStripMenuItem.DropDownItems.Count; i >= 1; i--)
                 {
-
-                    string userDesktopDir = @"C:\Users\" + Environment.UserName + @"\Desktop\";
-                    DirectoryInfo pubdir = new DirectoryInfo(PublicDesktopDir);
-                    FileInfo[] files = pubdir.GetFiles();
-
-                    foreach (FileInfo file in files)
-                    {
-                        if (file.Length > 0)
-                        {
-                            if (File.Exists(userDesktopDir + file.Name))
-                            {
-                                File.Delete(userDesktopDir + file.Name);
-                            }
-                            file.MoveTo(userDesktopDir + file.Name);
-                        }
-                    }
+                    favoritesToolStripMenuItem.DropDownItems.RemoveAt(i - 1);
                 }
+
+            if (editFavoritesToolStripMenuItem.DropDownItems.Count != 0)
+                for (int i = editFavoritesToolStripMenuItem.DropDownItems.Count; i >= 1; i--)
+                {
+                    editFavoritesToolStripMenuItem.DropDownItems.RemoveAt(i - 1);
+                }
+
+            foreach (Desktop desktop in desktop_Manager.desktop_List)
+            {
+                ToolStripMenuItem favoritesItem = new ToolStripMenuItem(desktop.name, null, setDesktop );
+                favoritesItem.Text = desktop.name;
+                favoritesItem.Tag = desktop;
+
+                ToolStripMenuItem editItem = new ToolStripMenuItem(desktop.name, null, editFavorites);
+                editItem.Text = "Edit " + desktop.name;
+                editItem.Tag = desktop;
+
+                favoritesToolStripMenuItem.DropDownItems.Add(favoritesItem);
+                editFavoritesToolStripMenuItem.DropDownItems.Add(editItem);
             }
         }
 
-        private void FavoritesButton_Click(object sender, EventArgs e)
+        private void setDesktop(object sender, EventArgs e)
         {
-            FavoritesForm favoritesForm = new FavoritesForm();
-            favoritesForm.ShowDialog();
-            favoritesForm.Activate();
-        }
-
-        private void RootForm_Load(object sender, EventArgs e)
-        {
-            desktop_Manager.selectedDesktop = 0;
-            Desktop_Manager.Load_Desktop();
-            DirectoryTextBox.Text = desktop_Manager.location;
+            Desktop desktop = (sender as ToolStripMenuItem).Tag as Desktop;
+            DirectoryTextBox.Text = desktop.location;
+            ChangeDesktop.Change_Desktop(desktop.location);
         }
 
         private void RootForm_Activated(object sender, EventArgs e)
         {
-            DirectoryTextBox.Text = desktop_Manager.location;
+            refreshFavorites();
+        }
+
+        private void revertToDefaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("" +
+                "Are you sure you want to revert to defaults?\n" +
+                "This will erase all your saved favorites", 
+                "Caption", 
+                MessageBoxButtons.YesNo);
+
+            if (response.ToString() == "Yes")
+            {
+                desktop_Manager.createDefaultDesktop_List();
+                desktop_Manager.Save_Desktops();
+                refreshFavorites();
+            }
+        }
+
+        private void editFavorites(object sender, EventArgs e)
+        {
+            Desktop desktop = (sender as ToolStripMenuItem).Tag as Desktop;
+            EditFavorites editFavorites = new EditFavorites(desktop);
+            editFavorites.Show();
+            
+
+        }
+
+        private void changeDesktopButton_Click_1(object sender, EventArgs e)
+        {
+            ChangeDesktop.Change_Desktop(DirectoryTextBox.Text);
         }
     }
 }

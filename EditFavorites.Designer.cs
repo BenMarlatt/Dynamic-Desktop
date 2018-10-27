@@ -28,77 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.EditFavorites_NameLabel = new System.Windows.Forms.Label();
-            this.EditFavorites_NameTextbox = new System.Windows.Forms.TextBox();
-            this.EditFavorites_LocationTextbox = new System.Windows.Forms.TextBox();
-            this.EditFavorites_LocationLabel = new System.Windows.Forms.Label();
-            this.EditFavorites_CancelButton = new System.Windows.Forms.Button();
-            this.EditFavorites_ApplyButton = new System.Windows.Forms.Button();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.locationTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.applyButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // EditFavorites_NameLabel
+            // nameTextBox
             // 
-            this.EditFavorites_NameLabel.AutoSize = true;
-            this.EditFavorites_NameLabel.Location = new System.Drawing.Point(12, 15);
-            this.EditFavorites_NameLabel.Name = "EditFavorites_NameLabel";
-            this.EditFavorites_NameLabel.Size = new System.Drawing.Size(35, 13);
-            this.EditFavorites_NameLabel.TabIndex = 0;
-            this.EditFavorites_NameLabel.Text = "Name";
+            this.nameTextBox.Location = new System.Drawing.Point(66, 12);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(341, 20);
+            this.nameTextBox.TabIndex = 0;
             // 
-            // EditFavorites_NameTextbox
+            // locationTextBox
             // 
-            this.EditFavorites_NameTextbox.Location = new System.Drawing.Point(89, 12);
-            this.EditFavorites_NameTextbox.Name = "EditFavorites_NameTextbox";
-            this.EditFavorites_NameTextbox.Size = new System.Drawing.Size(158, 20);
-            this.EditFavorites_NameTextbox.TabIndex = 2;
+            this.locationTextBox.Location = new System.Drawing.Point(66, 38);
+            this.locationTextBox.Name = "locationTextBox";
+            this.locationTextBox.Size = new System.Drawing.Size(341, 20);
+            this.locationTextBox.TabIndex = 1;
             // 
-            // EditFavorites_LocationTextbox
+            // label1
             // 
-            this.EditFavorites_LocationTextbox.Location = new System.Drawing.Point(89, 38);
-            this.EditFavorites_LocationTextbox.Name = "EditFavorites_LocationTextbox";
-            this.EditFavorites_LocationTextbox.Size = new System.Drawing.Size(158, 20);
-            this.EditFavorites_LocationTextbox.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Name";
             // 
-            // EditFavorites_LocationLabel
+            // label2
             // 
-            this.EditFavorites_LocationLabel.AutoSize = true;
-            this.EditFavorites_LocationLabel.Location = new System.Drawing.Point(12, 41);
-            this.EditFavorites_LocationLabel.Name = "EditFavorites_LocationLabel";
-            this.EditFavorites_LocationLabel.Size = new System.Drawing.Size(48, 13);
-            this.EditFavorites_LocationLabel.TabIndex = 3;
-            this.EditFavorites_LocationLabel.Text = "Location";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Location";
             // 
-            // EditFavorites_CancelButton
+            // cancelButton
             // 
-            this.EditFavorites_CancelButton.Location = new System.Drawing.Point(172, 73);
-            this.EditFavorites_CancelButton.Name = "EditFavorites_CancelButton";
-            this.EditFavorites_CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.EditFavorites_CancelButton.TabIndex = 5;
-            this.EditFavorites_CancelButton.Text = "Cancel";
-            this.EditFavorites_CancelButton.UseVisualStyleBackColor = true;
-            this.EditFavorites_CancelButton.Click += new System.EventHandler(this.EditFavorites_CancelButton_Click);
+            this.cancelButton.Location = new System.Drawing.Point(332, 64);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // EditFavorites_ApplyButton
+            // applyButton
             // 
-            this.EditFavorites_ApplyButton.Location = new System.Drawing.Point(89, 73);
-            this.EditFavorites_ApplyButton.Name = "EditFavorites_ApplyButton";
-            this.EditFavorites_ApplyButton.Size = new System.Drawing.Size(75, 23);
-            this.EditFavorites_ApplyButton.TabIndex = 6;
-            this.EditFavorites_ApplyButton.Text = "Apply";
-            this.EditFavorites_ApplyButton.UseVisualStyleBackColor = true;
-            this.EditFavorites_ApplyButton.Click += new System.EventHandler(this.EditFavorites_ApplyButton_Click);
+            this.applyButton.Location = new System.Drawing.Point(251, 64);
+            this.applyButton.Name = "applyButton";
+            this.applyButton.Size = new System.Drawing.Size(75, 23);
+            this.applyButton.TabIndex = 5;
+            this.applyButton.Text = "Apply";
+            this.applyButton.UseVisualStyleBackColor = true;
+            this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
             // EditFavorites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 108);
-            this.Controls.Add(this.EditFavorites_ApplyButton);
-            this.Controls.Add(this.EditFavorites_CancelButton);
-            this.Controls.Add(this.EditFavorites_LocationTextbox);
-            this.Controls.Add(this.EditFavorites_LocationLabel);
-            this.Controls.Add(this.EditFavorites_NameTextbox);
-            this.Controls.Add(this.EditFavorites_NameLabel);
+            this.ClientSize = new System.Drawing.Size(419, 93);
+            this.Controls.Add(this.applyButton);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.locationTextBox);
+            this.Controls.Add(this.nameTextBox);
             this.Name = "EditFavorites";
             this.Text = "EditFavorites";
             this.Load += new System.EventHandler(this.EditFavorites_Load);
@@ -109,11 +109,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label EditFavorites_NameLabel;
-        private System.Windows.Forms.TextBox EditFavorites_NameTextbox;
-        private System.Windows.Forms.TextBox EditFavorites_LocationTextbox;
-        private System.Windows.Forms.Label EditFavorites_LocationLabel;
-        private System.Windows.Forms.Button EditFavorites_CancelButton;
-        private System.Windows.Forms.Button EditFavorites_ApplyButton;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox locationTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button applyButton;
     }
 }
